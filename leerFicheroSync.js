@@ -2,7 +2,7 @@ var fs = require("fs");
 var operaciones = require('./operaciones.js');
 
 var data = fs.readFileSync("cdcatalog.xml");
-//console.log("Synchronous read: " + data.toString());
+console.log("Synchronous read: " + data.toString());
 
 var parametersArray = process.argv;
 var res = 1;
@@ -12,7 +12,7 @@ for (var i = 0; i < parametersArray.length; i++) {
 }
 
 for (var i = 2; i < parametersArray.length; i++) {
-	res = process.argv[i] * res;
+	res = operaciones.multiplicar(process.argv[i], res);
 }
 
 var resultado = operaciones.multiplicar(process.argv[2], process.argv[3]);
